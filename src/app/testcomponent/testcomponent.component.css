@@ -1,0 +1,14 @@
+.text-success {
+    color: green;
+}
+.text-danger {
+    color: red;
+}
+.text-primary{
+    color: blue;
+}
+.text-special{
+    color: blueviolet;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: italic;
+}

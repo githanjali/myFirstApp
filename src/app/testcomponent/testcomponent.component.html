@@ -1,0 +1,93 @@
+<p>testcomponent works!</p>
+
+
+<h1>
+   Hello, {{name}} 
+</h1>
+<div [id]="myId" >
+    <input type="text" value="Ravirala"> 
+</div>
+<!-- Note {{}} type of binding only works for the String type properties-->
+<div id="{{myId2}}" >
+    <input type="text" value="Mahesh"> 
+</div>
+<!-- Here isDisable is boolean so {{}} dint works-->
+<div  >
+    <input type="text" value="Mahesh" [disabled]="isDisable"> 
+</div>
+
+<!-- Class Binding -->
+<div>
+     <h4>Class Binding </h4>
+     <h5 [class]="success">   Hello, {{name}}  </h5>
+     <h5 [class]="danger">   Hello, {{name}}  </h5>
+     <h5 [class.text-danger]="hasError">   Hello, {{name}}  </h5>
+     <div [ngClass]="messageClass">   Hello, {{name}}  </div>
+     
+</div>
+
+<!-- Event Binding -->
+<div>
+    <h4>Event Binding </h4>
+    
+    <button (click)="onClick()">    Click Here {{name}} </button>
+
+
+    
+</div>
+
+<!-- Two Way Binding -->
+<div>
+    <h4>Two way Binding </h4>
+    
+    <input type="text" [(ngModel)]="myname" value="Mahesh" [disabled]="!isDisable"> 
+
+    {{myname}}
+
+    
+</div>
+
+
+<!-- structural directieves -->
+<div>
+    <h4>structural directieves  1.ngIf 2.ngFor 3.ngSwitch </h4>
+     <div  *ngIf="isSpecial;then thenBlock; else elseBlock">
+        <p [ngClass]="messageClass" >  Yeah im a special text </p>
+     </div>
+
+     <ng-template #thenBlock>
+        <p [class]="success"> Im not a special </p>
+   </ng-template>
+
+
+     <ng-template #elseBlock>
+          <p> Im not a special text</p>
+     </ng-template>
+
+     <h4>ngFor</h4>
+
+     <ul *ngFor="let student of students">
+         <li> <h5>{{student | json }}</h5>   <h5>{{student}}</h5></li>
+     </ul>
+     
+     <ul *ngFor="let color of colors ; index as i">
+        <li> {{i}}<h5>{{color}}</h5>   </li>
+    </ul>
+</div>
+
+
+<!-- Component communication -->
+<div>
+    <h4 style="color: green;" >Parent to child -> @input </h4>
+    
+    {{'I Came from app parent compenent  : '+  name2}} Parent to chaild via @input 
+    
+    <h5>JSon Data as input from parent</h5>
+    <p> {{companyData | json}} </p>
+
+
+    <h4 style="color: green;">Child to parent  ->Event emitter </h4> 
+
+    <button (click)="fireEvent()" > Send data to parent via @output </button>
+</div>
+
